@@ -75,5 +75,3 @@ and I was given permission to use them as I please
 ## Acknowledgments
 
 Thanks to Hiroyuki Sasaki for taking the photos
-The Mec website for giving inspiration
-Assignment 2 for Advance Databases for giving me a starting point
