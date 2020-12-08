@@ -57,9 +57,9 @@ class SignUp extends Component {
             });
             const body = JSON.parse(await response.text());
             console.log(body);
-            if (body === 1) {
+            if (body.valid) {
                 formResponse = true;
-                const { userId } = body;
+                const { userId } = body.response;
                 this.props.login(userId);
             } else {
                 formResponse = false;

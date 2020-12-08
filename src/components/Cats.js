@@ -29,7 +29,7 @@ class Cats extends Component {
                             <Row>
                                 <Col>
                                     <Container style={styles.container}>
-                                        <Link class='image-wrapper' to='./cats/1' style={styles.link}>
+                                        <Link className='image-wrapper' to='./cats/1' style={styles.link}>
                                             <Image src={shoes1} style={{width:'20%'}}></Image>
                                             <p class='title_text'>cat</p>
                                             <p class='color_text'>black</p>

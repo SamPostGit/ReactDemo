@@ -3,15 +3,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from 'react-router-dom';
+import { Navbar, NavDropdown, Container, Nav, Button, Form, FormControl } from 'react-bootstrap';
 
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Home from './components/Home';
 import Cats from './components/Cats'
 import Footer from './components/Footer';
-import { Navbar, NavDropdown, Container, Nav, Button, Form, FormControl } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 
 class App extends Component {
@@ -23,6 +23,7 @@ class App extends Component {
 
   login = (userId) => {
     this.setState({userId: userId});
+    console.log(this.state.userId);
   }
 
   logout = () => {
@@ -51,7 +52,7 @@ render() {
                 {this.props.userId}
                 <Navbar bg="dark" variant="dark"  fixed='top'>
                 <Link to="./">
-                    <Navbar.Brand>CSCI</Navbar.Brand>
+                    <Navbar.Brand>Whatever I want</Navbar.Brand>
                 </Link>
                 <Nav variant="dark">
                     <NavDropdown title="Lyrics" id="basic-nav-dropdown">
@@ -90,7 +91,7 @@ render() {
             </Container>
         <Switch>
           <Route exact path="/">
-            <Home/>
+            <Home userId={this.state.userId}/>
           </Route>
           <Route path="/cats">
             <Cats/>
@@ -99,7 +100,7 @@ render() {
             <SignIn login={this.login}/>
           </Route>
           <Route path="/signup">
-          <SignUp login={this.login}/>
+            <SignUp login={this.login}/>
           </Route>
         </Switch>
         <Footer></Footer>

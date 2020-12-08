@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -27,7 +27,7 @@ app.post('/signup', async (req, res) => {
     await adminClient.connect();
     const response = (await adminClient.db().collection('users').insertOne(newUser).then()).insertedId;
     console.log(response);
-    res.send(`${JSON.stringify(response)}`,);
+    res.send(`${JSON.stringify({response, valid: true})}`,);
   } catch (error) {
     console.log(error);
     res.send(error);
@@ -41,10 +41,12 @@ app.post('/signin', async (req, res) => {
     await adminClient.connect();
     const response = await adminClient.db().collection('users').find( { email: email, pwd: password}).next();
     if (response !== null) {
-      res.send(`${JSON.stringify(response._id)}`)
-    }
+      res.send(`${JSON.stringify({userId: response._id, valid: true})}`)
+    } else {
     res.send(`${JSON.stringify(null)}`);
+    }
   } catch (e) {
+    
     console.error(e);
   }
 });

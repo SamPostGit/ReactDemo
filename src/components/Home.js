@@ -6,6 +6,7 @@ import banner2 from '../media/banner2.jpg';
 
 class Home extends Component {
     render() {
+        console.log(this.props.userId);
         return (
             <div style={{marginTop: "auto"}}>
                 <Row>
@@ -30,7 +31,7 @@ class Home extends Component {
                      <Col>
                         <Container>
                         <Link to='/cats' style={{color: 'black', hover: 'black'}}>
-                            <h2>Other Title</h2>
+                            <h2>{this.props.userId}</h2>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at.
                                 In maximus pretium dolor, non efficitur erat vestibulum ac. Quisque.

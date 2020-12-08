@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 
 class SignIn extends Component {
@@ -15,6 +15,7 @@ class SignIn extends Component {
         return (
           <Link to='/'>
             <Button>Success return to Home</Button>
+            <Redirect to="/"/>
           </Link>
         )
       } else if (this.state.responseToPost === false) {
